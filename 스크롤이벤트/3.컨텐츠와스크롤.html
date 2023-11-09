@@ -28,7 +28,7 @@
         }
 
         .scroll-inter {
-            /* opacity: 0; */
+            opacity: 0;
             transition: 1s;
             transform: translateX(-50px);
         }
@@ -46,10 +46,41 @@
             <div class="contents scroll-inter"></div>
             <div class="contents scroll-inter"></div>
             <div class="contents scroll-inter"></div>
+
+            <span id="test" class="scroll-inter">테스트영역</span>
+
+
             <div class="contents scroll-inter"></div>
             <div class="contents scroll-inter"></div>
             <div class="contents scroll-inter"></div>
         </div>
     </section>
+
+    <script>
+        const test = document.getElementById('test');
+
+        // test의 위치를 파악할수 있게 해주는 도구
+        console.log(
+            test.getBoundingClientRect() // = 다양한 좌표값들을 반환해준다.
+            )
+        // top,bottom, width,height등 다양한 프로퍼티가 들어있다.
+        // 위치는 브라우저 내부 화면이 기준 
+
+        // 스크롤 할때마다 test의 위치정보를 콘솔에 출력하게 만들어 주세요!
+        window.addEventListener('scroll',(e)=>{
+            if( test.getBoundingClientRect().top - window.innerHeight < 0 ) {
+                test.classList.add('active');
+            }else {
+                test.classList.remove("active");
+            }
+
+
+            // 스크롤에따라 test가 나타나는 인터렉션을 추가해봅시다!
+
+
+        })
+
+
+    </script>
 </body>
 </html>
