@@ -22,4 +22,15 @@ header.scrolled .hamberger::before {
 
 /* 메인컨텐츠 숨겨놓기(오른쪽으로 살짝 이동시키고 투명하게) */
 
+.scroll-inter {
+    opacity: 0;
+    transition: 1s;
+    transform: translateX(-50px);
+}
+
+.scroll-inter.active {
+    opacity: 1;
+    transform: none;
+}
+
 /* '함께하고 있습니다' 섹션 오른쪽에 파란 평행사변형 이동시켜놓기  */
