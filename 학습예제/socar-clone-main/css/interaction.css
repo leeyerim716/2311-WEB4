@@ -34,3 +34,13 @@ header.scrolled .hamberger::before {
 }
 
 /* '함께하고 있습니다' 섹션 오른쪽에 파란 평행사변형 이동시켜놓기  */
+
+#start-together > .incline {
+    transform: translateX(40%) skewX(-30deg);
+    left: 80%;
+    transition: 1s;
+}
+
+#start-together > .incline.active {
+    transform: skewX(-30deg);
+}
