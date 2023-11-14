@@ -20,8 +20,6 @@ for(let j = 0 ; j < adventage.length ; j ++) {
 
 const incline = document.querySelector('#start-together > .incline')
 
-console.log(incline)
-
 window.addEventListener('scroll', () =>{
     if(incline.getBoundingClientRect().top - window.innerHeight < 0 ) {
         incline.classList.add('active');
@@ -29,4 +27,13 @@ window.addEventListener('scroll', () =>{
         incline.classList.remove("active");
     }
 })
+
+
+
+const appDownload = document.getElementById('app-download');
+
+setTimeout(() => {
+    appDownload.classList.add('active')
+},1000);
+
 

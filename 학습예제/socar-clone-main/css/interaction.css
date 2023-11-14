@@ -44,3 +44,36 @@ header.scrolled .hamberger::before {
 #start-together > .incline.active {
     transform: skewX(-30deg);
 }
+
+
+
+/* 앱다운로드 버튼 */
+
+#app-download > .incline {
+    transition: 1s;
+    transform: skewX(-30deg) translateX(120%);
+    transition-delay: 0.3s;
+}
+
+#app-download > figure {
+    transition: 1s;
+    opacity: 0;
+    transition-delay: 0.8s;
+}
+
+#app-download > p {
+    transition: 1s;
+    opacity: 0;
+}
+
+#app-download.active > .incline {
+    transform: skewX(-30deg) translateX(20px);
+}
+
+#app-download.active > figure {
+    opacity: 1;
+}
+
+#app-download.active > p {
+    opacity: 1;
+}
