@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="count">13513412</p>
+    <p class="counts">123</p>
+    <p class="counts">444</p>
+    <p class="counts">515135</p>
+    <p class="counts">12345245</p>
+    <script>
+        const count = document.getElementById('count');
+
+
+        makeCount(count,2000,60);
+
+        const counts = document.getElementsByClassName('counts');
+
+        for(let i = 0 ; i < counts.length ; i ++) {
+            makeCount(counts[i],2000,60);
+        }
+
+        
+        
+        function makeCount(대상,지속시간,fps){
+            const goal = Number(대상.innerText);
+
+            const 재생횟수 = 지속시간/1000 * fps;
+
+            
+            for(let i = 0 ; i < 재생횟수 ; i++) {
+                const 진행도 = (i+1) / 재생횟수;
+                
+                console.log(easeInOutQuart(진행도)*100);
+                
+                setTimeout(() => {
+                    // nowCount += 10000;
+                    대상.innerText = `${Math.floor(easeInOutQuart(진행도) * goal).toLocaleString()}`
+                }, 1000/fps*i);
+                
+            }
+            
+            
+            function easeInOutQuart(x) {
+                return x < 0.5 ? 8 * x * x * x * x : 1 - Math.pow(-2 * x + 2, 4) / 2;
+            }
+            
+            
+        }
+            
+        
+        
+        
+
+    </script>
+</body>
+</html>
