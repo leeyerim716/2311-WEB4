@@ -11,8 +11,12 @@
             background-color: red;
             position: absolute;
             cursor: pointer;
-            left: 0;
-            top: 0;
+            left: 100px;
+            top: 100px;
+        }
+
+        #drag-able.dragging {
+            cursor: move;
         }
     </style>
 </head>
@@ -26,19 +30,44 @@
         
         // 재료
         let isClicked = false;
+
+        let posX, posY = 0;
         // 2. x좌표와 y좌표를 담을 변수
 
        
         dargAble.addEventListener('mousedown',(e) => {
             isClicked = true;
 
-            console.log(`type : ${e.type}, x : ${e.clientX}, y: ${e.clientY}`)
-            console.log(dargAble.getBoundingClientRect().top,dargAble.getBoundingClientRect().left)
+            // posX=e.clientX
+            // posY=e.clientY
+            // divX=dargAble.getBoundingClientRect().left;
+            // divY=dargAble.getBoundingClientRect().top;
+
+            console.log(posX, posY);
+            // 클릭하는 시점의 좌표를 기억
+
+            dargAble.classList.add('dragging')
+
+            // offset?
+
+            posX = e.offsetX;
+            posY = e.offsetY;
+
         })
         
         dargAble.addEventListener('mousemove', (e) => {
             if(isClicked){
-                console.log(`type : ${e.type}, x : ${e.clientX}, y: ${e.clientY}`)
+
+               
+                // 기억한 좌표와 현재 마우스 위치를 비교하면 이동거리를 파악할수 있다.
+                // 파악한 이동거리만큼 div를 움직여주면 됩니다.
+
+                // dargAble.style.left = `${divX + (e.clientX - posX)}px`;
+                // dargAble.style.top = `${divY + (e.clientY - posY)}px`;
+                // dargAble.style.top = `${???}px`;
+                
+                dargAble.style.left = `${e.clientX - posX}px`;
+                dargAble.style.top = `${e.clientY - posY}px`;
             }
             
         })
@@ -46,8 +75,8 @@
         dargAble.addEventListener('mouseup', (e) => {
 
             isClicked = false;
-            
-            console.log(`type : ${e.type}, x : ${e.clientX}, y: ${e.clientY}`)
+            dargAble.classList.remove('dragging')
+
 
         })
     
