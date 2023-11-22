@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .container {
+            width: 500px;
+            height: 500px;
+            border: 1px solid #222;
+            margin: 32px auto;
+
+            position: relative;
+        }
+
+        .content {
+            width: 50px;
+            height: 50px;
+            background-color: pink;
+            border: 1px solid #444;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+
+            transform: translate(-50%,calc(-50% - 200px)) rotate(0deg);
+            transform-origin: center calc(50% + 200px);
+        }
+    </style>
+</head>
+<body>
+    <ul class="container">
+        <li class="content"></li>
+        <li class="content"></li>
+        <li class="content"></li>
+        <li class="content"></li>
+        <li class="content"></li>
+        <li class="content"></li>
+        <li class="content"></li>
+        <li class="content"></li>
+        <li class="content"></li>
+        <li class="content"></li>
+        <li class="content"></li>
+        <li class="content"></li>
+        <li class="content"></li>
+        <li class="content"></li>
+        <li class="content"></li>
+        <li class="content"></li>
+        <li class="content"></li>
+
+    </ul>
+    <script>
+        const content = document.getElementsByClassName('content')
+
+        
+        for(let i = 0 ; i < content.length ; i ++) {
+            content[i].style.transform = `translate(-50%,calc(-50% - 200px)) rotate(${i*20}deg)`
+        }
+
+
+
+        const wrapper = document.querySelector('.container');
+
+        const wrapperCenter = {
+            x: wrapper.getBoundingClientRect().left + wrapper.getBoundingClientRect().width/2,
+            y: wrapper.getBoundingClientRect().top + wrapper.getBoundingClientRect().height/2
+        }
+
+
+
+
+
+
+        function getDegree(e) {
+            const x = wrapperCenter.x - e.clientX
+            const y = wrapperCenter.y - e.clientY
+
+            const radian = Math.atan2(y, x); // atan2함수
+            const degree = (radian * 180 / Math.PI).toFixed(0) - 90;  // radian -> 
+
+            return degree;
+        }
+    </script>
+</body>
+</html>
