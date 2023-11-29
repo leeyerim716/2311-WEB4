@@ -1,0 +1,73 @@
+img {
+    width: 100%;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.header-inner {
+    padding: 32px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 120px;
+}
+
+h1 {
+    width: 240px;
+}
+
+header nav {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+header ul {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.header-menus > a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.header-lang-container {
+    display: flex;
+    gap: 12px;
+    align-self: center;
+}
+
+.header-lang-container > a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+
+#intro-video {
+    /* 임시 */
+    height: 80vh;
+    background-color: black;
+    position: relative;
+}
+
+.intro-video-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    text-align: center;
+    font-size: 56px;
+    font-weight: bold;
+    line-height: 140%;
+}
